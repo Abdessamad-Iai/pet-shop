@@ -1,0 +1,16 @@
+.r1{
+    width: 500px;
+    height: 500px;
+    top: 100px;
+    transform: rotate(45deg);
+    border-radius: 99px;
+    background: #F7DBA7;
+}
+
+.r2{
+    width: 500px;
+    height: 500px;
+    top: 100px;
+    border-radius: 99px;
+    background: #1e3a8a;
+}
