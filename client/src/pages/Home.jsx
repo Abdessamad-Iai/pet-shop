@@ -31,7 +31,7 @@ const Home = () => {
         <div className='flex justify-center items-center r1 shrink-0 z-20 absolute'></div>
         <div className='flex justify-center items-center r2 shrink-0 z-10 absolute '></div>
       </div>
-      <Toaster richColors  />
+      <Toaster richColors />
     </div>
   );
 };
