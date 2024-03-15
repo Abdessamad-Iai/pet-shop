@@ -10,6 +10,8 @@ import Store from './components/Store';
 import Adoption from './components/Adoption';
 import Donation from './components/Donation';
 import Community from './components/Community';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +26,8 @@ root.render(
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="/q&a" element={<Community />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

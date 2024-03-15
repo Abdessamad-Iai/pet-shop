@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
@@ -5,6 +6,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'sonner';
 
+
+// eslint-disable-next-line react/prop-types
 const SignUp = ({ onClose }) => {
     const [formState, setFormState] = useState({
         firstName: "",
@@ -14,6 +17,7 @@ const SignUp = ({ onClose }) => {
         password: "",
         confirmPassword: "",
     });
+    
     const [errors, setErrors] = useState({});
 
     const handleInputChange = (e) => {
@@ -44,6 +48,7 @@ const SignUp = ({ onClose }) => {
         axios.post("http://localhost:3001/createUser", formState)
             .then(res => {
                 toast.success('Sign up successful');
+                console.log(res.data)
                 onClose();
             })
             .catch(error => {
@@ -157,7 +162,7 @@ const SignUp = ({ onClose }) => {
                     </button>
                     <p className="mt-2 text-sm text-gray-600">
                         Already have an account? &nbsp;
-                        <Link to="#" className="text-blue-500 hover:underline">
+                        <Link to="/signin" className="text-blue-500 hover:underline">
                             Log in
                         </Link>
                     </p>

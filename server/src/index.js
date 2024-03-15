@@ -13,9 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-connectDB();
 
-app.use("/", userRoute);
-app.use("/signin", signinRoute)
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.use(userRoute);
+app.use(signinRoute)
+
+app.listen(PORT, async () => {
+    await connectDB();
+    console.log(`Server started on port ${PORT}`)
+});

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import imageHome from '../assets/homeimage1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -1,25 +1,27 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {useCookies} from "react-cookie"
 
+// eslint-disable-next-line react/prop-types
 const SignIn = ({ onClose }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const [_, setCookies] = useCookies(["access_token"])
 
     const handleSignIn = async () => {
         try {
-            const response = await axios.post("/signin", { email, password });
-            setCookies("access_token", response.data.token)
+            const response = await axios.post("http://localhost:3001/signin", { email, password });
+            if(!response.status === 200){
+                throw new Error();
+            }
             window.localStorage.setItem("userID", response.data.userID)
             console.log(response.data);
-            navigate("/");
+            navigate(0);
         } catch (error) {
             setError("Invalid email or password");
             console.error('Error signing in:', error);
@@ -72,7 +74,7 @@ const SignIn = ({ onClose }) => {
                     </button>
                     <p className="mt-2 text-sm text-gray-600">
                         Dont have an account yet? &nbsp;
-                        <Link to="#" className="text-blue-500 hover:underline">
+                        <Link to="/signup" className="text-blue-500 hover:underline">
                             Sign up
                         </Link>
                     </p>
